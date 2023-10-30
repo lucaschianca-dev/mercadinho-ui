@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IProduto } from '../interfaces/produto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ export class ProdutoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  cadastraProduto(inputData: object) {
+  cadastraProduto(cadastroDto: any) {
 
-    return this.httpClient.post(this.api, inputData);
+    return this.httpClient.post<IProduto>(this.api, cadastroDto);
 
   }
 }

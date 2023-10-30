@@ -1,4 +1,4 @@
-export interface IProdutos {
+export interface IProduto {
     id: number;
     nome: string;
     preco: number;
@@ -7,4 +7,5 @@ export interface IProdutos {
     codigoBarras?: string;
     descricaoCurta: string;
     descricaoLonga: string;
+    ativo?: boolean
 }
