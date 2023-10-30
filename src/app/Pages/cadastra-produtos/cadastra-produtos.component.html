@@ -1,0 +1,54 @@
+<div>
+  <div class="container" mt-5>
+    <div class="card">
+
+      <div class="card-header">
+        <h4>Cadastre seu Produto
+          <a routerLink="/" class="btn btn-danger float-end">Voltar</a>
+        </h4>
+      </div>
+
+      <div class="card-body">
+
+        <form (ngSubmit)="cadastraProduto()">
+
+          <div class="mb-3">
+            <label>Nome</label>
+            <input type="text" [(ngModel)]="nome" name="nome" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label>Preço</label>
+            <input type="number" [(ngModel)]="preco" name="preco" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label>Validade</label>
+            <input type="text" [(ngModel)]="validade" name="validade" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label>Tipo</label>
+            <input type="text" [(ngModel)]="tipo" name="tipo" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label>Resumo</label>
+            <input type="text" [(ngModel)]="descricaoCurta" name="descricaoCurta" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label>Descricao</label>
+            <input type="text" [(ngModel)]="descricaoLonga" name="descricaoLonga" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Salvar</button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
