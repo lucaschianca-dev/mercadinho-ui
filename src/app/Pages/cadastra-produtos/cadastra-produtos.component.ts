@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProdutoService } from 'src/app/Services/produto.service';
+import { IProduto } from 'src/app/interfaces/produto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastra-produtos',
@@ -9,40 +12,35 @@ import { ProdutoService } from 'src/app/Services/produto.service';
 
 export class CadastraProdutosComponent {
 
-  constructor(private produtoService: ProdutoService) {
+  constructor(private produtoService: ProdutoService) {}
 
-  }
+  produtoForm = new FormGroup({
+    id: new FormControl(0, {nonNullable: true}),
+    nome: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
+    preco: new FormControl(0, {nonNullable: true, validators: [Validators.required]}),
+    validade: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
+    tipo: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
+    descricaoCurta: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
+    descricaoLonga: new FormControl('', {nonNullable: true, validators: [Validators.required]})
+  });
 
-  nome!: String;
-  preco!: number;
-  validade!: String;
-  tipo!: String;
-  descricaoCurta!: String;
-  descricaoLonga!: String;
+  enviar() {
+    const produto: Partial<IProduto> = this.produtoForm.value as IProduto;
+    produto.ativo = true;
 
-  erros: any = [];
+    console.log(produto);
 
-  cadastraProduto() {
+    this.produtoService.cadastraProduto(produto).subscribe((result) => {
+      Swal.fire(
+        'CONFIRMADO!',
+        'Produto cadastrado com sucesso!',
+        'success'
+      );
+    },
+    (error) => {
+      const { message } = error;
 
-    var inputData = {
-      nome: this.nome,
-      preco: this.preco,
-      validade: this.validade,
-      tipo: this.tipo,
-      descricaoCurta: this.descricaoCurta,
-      descricaoLonga: this.descricaoLonga
-    }
-
-    this.produtoService.cadastraProduto(inputData).subscribe({
-      next: (res: any) => {
-        console.log(res, );
-      },
-      error: (err: any) => {
-        this.erros = err.error.erros;
-        console.log(err.error.errors, 'erros');
-      }
+      Swal.fire('Ops...', message, 'error');
     });
-
   }
-
 }
