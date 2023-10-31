@@ -14,6 +14,9 @@ export class ProdutoService {
   cadastraProduto(cadastroDto: any) {
 
     return this.httpClient.post<IProduto>(this.api, cadastroDto);
+  }
 
+  findProdutos() {
+    return this.httpClient.get<IProduto[]>(this.api);
   }
 }

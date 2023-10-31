@@ -1,15 +1,18 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Pages/home/home.component';
-import { ProdutosComponent } from './Pages/produtos/produtos.component';
 import { CadastraProdutosComponent } from './Pages/cadastra-produtos/cadastra-produtos.component';
+import { HomeComponent } from './Pages/home/home.component';
 import { NavbarComponent } from './Pages/Partials/navbar/navbar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProdutosComponent } from './Pages/produtos/produtos.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProdutosComponent,
     CadastraProdutosComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
