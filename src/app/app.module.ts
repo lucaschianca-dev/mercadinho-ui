@@ -13,6 +13,7 @@ import { CadastraProdutosComponent } from './Pages/cadastra-produtos/cadastra-pr
 import { HomeComponent } from './Pages/home/home.component';
 import { NavbarComponent } from './Pages/Partials/navbar/navbar.component';
 import { ProdutosComponent } from './Pages/produtos/produtos.component';
+import { ProdutosInativosComponent } from './Pages/produtos-inativos/produtos-inativos.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProdutosComponent } from './Pages/produtos/produtos.component';
     ProdutosComponent,
     CadastraProdutosComponent,
     NavbarComponent,
+    ProdutosInativosComponent,
   ],
   imports: [
     BrowserModule,

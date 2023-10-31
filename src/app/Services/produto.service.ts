@@ -19,4 +19,16 @@ export class ProdutoService {
   findProdutos() {
     return this.httpClient.get<IProduto[]>(this.api);
   }
+
+  findProdutosInativos() {
+    return this.httpClient.get<IProduto[]>(this.api + '/inativos')
+  }
+
+  inativaProduto(id: number) {
+    return this.httpClient.delete<IProduto>(this.api + '/inativa/' + id)
+  }
+
+  excluiProduto(id: number) {
+    return this.httpClient.delete<IProduto>(this.api + '/' + id)
+  }
 }

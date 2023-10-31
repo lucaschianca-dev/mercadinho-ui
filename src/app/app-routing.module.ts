@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 import { ProdutosComponent } from './Pages/produtos/produtos.component';
 import { CadastraProdutosComponent } from './Pages/cadastra-produtos/cadastra-produtos.component';
+import { ProdutosInativosComponent } from './Pages/produtos-inativos/produtos-inativos.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'produtos/cadastrar', component: CadastraProdutosComponent, title: 'Cadastrar Produto'
   },
+
+  {
+    path: 'produtos/inativos', component: ProdutosInativosComponent, title: 'Produtos Inativos'
+  },
+
 ];
 
 @NgModule({

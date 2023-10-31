@@ -1,15 +1,15 @@
+import { Component } from '@angular/core';
 import { ProdutoService } from 'src/app/Services/produto.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { IProduto } from 'src/app/interfaces/produto';
-import { MatPaginator } from '@angular/material/paginator';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-produtos',
-  templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css']
+  selector: 'app-produtos-inativos',
+  templateUrl: './produtos-inativos.component.html',
+  styleUrls: ['./produtos-inativos.component.css']
 })
-export class ProdutosComponent implements OnInit {
+export class ProdutosInativosComponent {
+
   produtos: IProduto[] = [];
   pageSizeOptions: number[] = [1, 25, 50]; // Defina as opções de tamanho de página desejadas
   pageSize: number = 1; // Defina o tamanho de página padrão
@@ -17,11 +17,11 @@ export class ProdutosComponent implements OnInit {
   constructor(private produtoService: ProdutoService) {}
 
   ngOnInit() {
-    this.listaProdutos();
+    this.listaProdutosInativos();
   }
 
-  listaProdutos() {
-    this.produtoService.findProdutos().subscribe((produtos) => {
+  listaProdutosInativos() {
+    this.produtoService.findProdutosInativos().subscribe((produtos) => {
       if (Array.isArray(produtos)) {
         this.produtos = produtos;
       }
@@ -37,23 +37,24 @@ export class ProdutosComponent implements OnInit {
     console.log(this.pageSize)
   }
 
-  inativaProduto(id: number) {
+  excluiProduto(id: number) {
     Swal.fire({
-      title: 'Deseja inativar o produto?',
-      text: "Poderá ativa-lo posteriormente",
+      title: 'Deseja excluir o produto?',
+      text: "Esta alteração não poderá ser desfeita",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, inativar!',
+      confirmButtonText: 'Sim, excluir!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.produtoService.inativaProduto(id).subscribe(() => {
+        this.produtoService.excluiProduto(id).subscribe(() => {
           Swal.fire('Inativado!', 'Produto inativado', 'success');
-          this.listaProdutos();
+          this.listaProdutosInativos();
         });
       }
     });
   }
+
 }
