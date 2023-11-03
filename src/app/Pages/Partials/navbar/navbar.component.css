@@ -1,0 +1,15 @@
+.logo-img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-link:hover {
+  color: #007BFF;
+  transition: color 0.3s;
+}
+
+.navbar-nav li {
+  margin-right: 60px; /* Ajuste o valor conforme necessário para o espaçamento desejado */
+}
