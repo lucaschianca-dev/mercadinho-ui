@@ -1,6 +1,8 @@
 # MercadoUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Front-end do projeto feito para capacitação na Minsait - Indra Company
+
+Projeto feito em [Angular CLI](https://github.com/angular/angular-cli) v - 16.2.5.
 
 ## Development server
 
