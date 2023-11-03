@@ -8,6 +8,8 @@ Projeto feito em [Angular CLI](https://github.com/angular/angular-cli) v - 16.2.
 
 [Vídeo demonstrando o funcionamento da aplicação](https://www.youtube.com/watch?v=j7bVfr4DJa0)
 
+Neste projeto, é possível adicionar um produto à tabela, atualizar este produto, excluir (delete no banco de dados) e inativar o produto ("arquivar". Apesar de não mostrado mais na tabela, o produto continuará no banco de dados)
+
 # Technologies used
 ## Back-end
 - Java
