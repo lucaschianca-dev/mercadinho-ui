@@ -39,7 +39,7 @@ cd >project folder<
 # run the project
 
 # clone UI repository
-git clone
+git clone https://github.com/lucaschianca-dev/mercado-ui
 
 # enter the project folder
 cd >project folder<
