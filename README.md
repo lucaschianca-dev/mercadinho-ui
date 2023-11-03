@@ -21,6 +21,16 @@ Neste projeto, é possível `adicionar um produto` à tabela, `atualizar` este p
 - H2
 ## Front-end
 - Angular CLI 16.2.5
+  
+```bash
+# clone repository
+git clone https://github.com/lucaschianca-dev/mercado-api.git
+
+# enter the project folder
+cd >project folder<
+
+# run the project
+```
 
 # Autor
 
