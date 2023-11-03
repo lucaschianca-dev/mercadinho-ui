@@ -1,8 +1,12 @@
 # MercadoUi
 
-Front-end do projeto feito para capacitação na Minsait - Indra Company
+# Sobre o projeto
+
+Mercado-UI é uma aplicação front-end desenvolvida para o desafio de capacitação na Minsait - An Indra Company
 
 Projeto feito em [Angular CLI](https://github.com/angular/angular-cli) v - 16.2.5.
+
+[Vídeo demonstrando o funcionamento da aplicação](https://www.youtube.com/watch?v=j7bVfr4DJa0)
 
 ## Development server
 
