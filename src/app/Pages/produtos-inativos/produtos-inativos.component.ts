@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProdutoService } from 'src/app/Services/produto.service';
 import { IProduto } from 'src/app/interfaces/produto';
+import { ProdutoService } from 'src/app/Services/produto.service';
 import Swal from 'sweetalert2';
 
 @Component({
