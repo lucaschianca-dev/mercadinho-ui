@@ -24,7 +24,7 @@ Neste projeto, é possível `adicionar um produto` à tabela, `atualizar` este p
 # Como rodar o projeto
 
 ## Back-end
-Prerequisites: Java 17
+Pré-requisitos: Java 17
 
 ## Front-end
 Pré-requisitos: Node V - 18, Angular CLI 16
