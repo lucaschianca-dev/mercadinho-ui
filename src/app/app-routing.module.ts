@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'produtos/inativos', component: ProdutosInativosComponent, title: 'Produtos Inativos'
   },
 
+  {
+    path: 'produtos/cadastrar/:id', component: CadastraProdutosComponent, title: 'Atualizar Produto'
+  },
+
 ];
 
 @NgModule({

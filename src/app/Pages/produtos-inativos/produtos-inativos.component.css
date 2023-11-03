@@ -1,19 +1,7 @@
-/* Estilização para o botão "Atualizar" (verde) */
-.update-button {
-  background-color: #4CAF50; /* Cor verde */
-  color: #fff; /* Cor do texto branca */
-  border: none; /* Remover a borda */
-  border-radius: 4px; /* Adicionar cantos arredondados */
-  padding: 6px 12px; /* Espaçamento interno */
-  cursor: pointer; /* Transformar em cursor de ponteiro ao passar o mouse */
+.mat-mdc-icon-button.mat-success {
+  color: #15c72de2;
 }
 
-/* Estilização para o botão "Excluir" (vermelho) */
-.delete-button {
-  background-color: #D32F2F; /* Cor vermelha */
-  color: #fff; /* Cor do texto branca */
-  border: none; /* Remover a borda */
-  border-radius: 4px; /* Adicionar cantos arredondados */
-  padding: 6px 12px; /* Espaçamento interno */
-  cursor: pointer; /* Transformar em cursor de ponteiro ao passar o mouse */
+.mat-mdc-icon-button.mat-success:hover {
+  color: #00ff22e2;
 }

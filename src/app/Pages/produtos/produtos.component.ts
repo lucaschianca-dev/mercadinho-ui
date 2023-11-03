@@ -1,7 +1,8 @@
-import { ProdutoService } from 'src/app/Services/produto.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { TooltipPosition } from '@angular/material/tooltip';
 import { IProduto } from 'src/app/interfaces/produto';
-import { MatPaginator } from '@angular/material/paginator';
+import { ProdutoService } from 'src/app/Services/produto.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,10 +12,13 @@ import Swal from 'sweetalert2';
 })
 export class ProdutosComponent implements OnInit {
   produtos: IProduto[] = [];
-  pageSizeOptions: number[] = [1, 25, 50]; // Defina as opções de tamanho de página desejadas
-  pageSize: number = 1; // Defina o tamanho de página padrão
+  pageSizeOptions: number[] = [1, 25, 50];
+  pageSize: number = 1;
+  positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
+  position = new FormControl(this.positionOptions[0]);
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(
+    private produtoService: ProdutoService) {}
 
   ngOnInit() {
     this.listaProdutos();
@@ -51,6 +55,26 @@ export class ProdutosComponent implements OnInit {
       if (result.isConfirmed) {
         this.produtoService.inativaProduto(id).subscribe(() => {
           Swal.fire('Inativado!', 'Produto inativado', 'success');
+          this.listaProdutos();
+        });
+      }
+    });
+  }
+
+  excluiProduto(id: number) {
+    Swal.fire({
+      title: 'Deseja excluir o produto?',
+      text: "Esta alteração não poderá ser desfeita",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produtoService.excluiProduto(id).subscribe(() => {
+          Swal.fire('Excluido!', 'Produto excluido', 'success');
           this.listaProdutos();
         });
       }

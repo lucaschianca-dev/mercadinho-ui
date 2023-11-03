@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoService } from 'src/app/Services/produto.service';
 import { IProduto } from 'src/app/interfaces/produto';
 import Swal from 'sweetalert2';
@@ -11,10 +13,14 @@ import Swal from 'sweetalert2';
 export class ProdutosInativosComponent {
 
   produtos: IProduto[] = [];
-  pageSizeOptions: number[] = [1, 25, 50]; // Defina as opções de tamanho de página desejadas
-  pageSize: number = 1; // Defina o tamanho de página padrão
+  pageSizeOptions: number[] = [1, 25, 50];
+  pageSize: number = 1;
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(
+    private produtoService: ProdutoService,
+    private route:ActivatedRoute,
+    private router: Router
+    ) {}
 
   ngOnInit() {
     this.listaProdutosInativos();
@@ -50,11 +56,33 @@ export class ProdutosInativosComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.produtoService.excluiProduto(id).subscribe(() => {
-          Swal.fire('Inativado!', 'Produto inativado', 'success');
-          this.listaProdutosInativos();
+          Swal.fire('Excluido!', 'Produto excluido', 'success');
+          this.produtosAtualizados();
         });
       }
     });
   }
 
+  ativaProduto(id: number) {
+    Swal.fire({
+      title: 'Deseja ativar este produto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, ativar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produtoService.ativaProduto(id).subscribe(() => {
+          Swal.fire('Ativado!', 'Produto ativado', 'success');
+          this.produtosAtualizados();
+        });
+      }
+    });
+  }
+
+  private produtosAtualizados() {
+    this.router.navigate(["/produtos"]);
+  }
 }

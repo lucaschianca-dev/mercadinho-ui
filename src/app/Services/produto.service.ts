@@ -28,7 +28,19 @@ export class ProdutoService {
     return this.httpClient.delete<IProduto>(this.api + '/inativa/' + id)
   }
 
+  ativaProduto(id: number) {
+    return this.httpClient.put<IProduto>(this.api + '/ativa/' + id, {});
+  }
+
   excluiProduto(id: number) {
     return this.httpClient.delete<IProduto>(this.api + '/' + id)
+  }
+
+  buscaPorId(id:number){
+    return this.httpClient.get<IProduto>(`${this.api}/${id}`)
+  }
+
+  atualizaProduto(produto: Partial<IProduto>) {
+    return this.httpClient.put<IProduto>(`${this.api}/${produto.id}`, produto);
   }
 }
