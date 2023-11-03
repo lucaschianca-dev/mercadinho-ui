@@ -21,15 +21,32 @@ Neste projeto, é possível `adicionar um produto` à tabela, `atualizar` este p
 - H2
 ## Front-end
 - Angular CLI 16.2.5
+# Como rodar o projeto
+
+## Back-end
+Prerequisites: Java 17
+
+## Front-end
+Pré-requisitos: Node V - 18, Angular CLI 16
   
 ```bash
-# clone repository
+# clone server repository
 git clone https://github.com/lucaschianca-dev/mercado-api.git
 
 # enter the project folder
 cd >project folder<
 
 # run the project
+
+# clone UI repository
+git clone
+
+# enter the project folder
+cd >project folder<
+
+# run the project
+ng serve
+
 ```
 
 # Autor
