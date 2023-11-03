@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <h4>
-          Cadastre seu Produto
+          {{ pagina === 'Cadastro' ? 'Cadastrar um produto' : 'Atualizar um produto' }}
           <a routerLink="/produtos" class="btn btn-danger float-end">Voltar</a>
         </h4>
       </div>

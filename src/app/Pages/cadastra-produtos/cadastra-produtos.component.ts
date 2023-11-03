@@ -13,11 +13,15 @@ import Swal from 'sweetalert2';
 
 export class CadastraProdutosComponent {
 
+  pagina: string;
+
   constructor(
     private produtoService: ProdutoService,
     private route:ActivatedRoute,
     private router: Router
-    ) {}
+    ) {
+      this.pagina = 'Cadastro';
+    }
 
   produtoForm = new FormGroup({
     id: new FormControl(0, {nonNullable: true}),
@@ -33,6 +37,7 @@ export class CadastraProdutosComponent {
     const id: number = Number.parseInt(this.route.snapshot.paramMap.get('id') || '0');
     console.log(id)
     if(id !== 0) {
+      this.pagina = 'Atualiza'
         this.produtoService.buscaPorId(id).subscribe(produto => {
           this.produtoForm.get('id')?.patchValue(produto.id);
           this.produtoForm.get('nome')?.patchValue(produto.nome);
@@ -42,6 +47,8 @@ export class CadastraProdutosComponent {
           this.produtoForm.get('descricaoCurta')?.patchValue(produto.descricaoCurta);
           this.produtoForm.get('descricaoLonga')?.patchValue(produto.descricaoLonga);
         })
+    } else {
+      this.pagina = 'Cadastro';
     }
   }
 
